@@ -1,7 +1,6 @@
-import React from 'react';
-
+import { NoFeedbackMsg } from './Notification.styled';
 const Notification = ({ message }) => {
-  return <h2>{message}</h2>;
+  return <NoFeedbackMsg>{message}</NoFeedbackMsg>;
 };
 
 export default Notification;

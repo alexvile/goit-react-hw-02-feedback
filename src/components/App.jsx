@@ -3,6 +3,8 @@ import React from 'react';
 import FeedbackOptions from './Feedback/FeedbackOptions';
 import Statistics from './Feedback/Statistics';
 import Notification from './Feedback/Notification';
+import Section from './Feedback/Section';
+import { StatisticsTitle } from './App.styled';
 
 class App extends React.Component {
   static defaultProps = {
@@ -23,7 +25,6 @@ class App extends React.Component {
     return states;
   };
   leaveFeedback = objKey => {
-    // console.log(objKey);
     this.setState(prevState => ({
       [objKey]: prevState[objKey] + 1,
     }));
@@ -37,8 +38,12 @@ class App extends React.Component {
     );
 
     return (
-      <div>
-        <p>Please leave feedback</p>
+      <Section title="Please leave feedback">
+        <FeedbackOptions
+          options={this.getState()}
+          onLeaveFeedback={this.leaveFeedback}
+        />
+        <StatisticsTitle>Statistics</StatisticsTitle>
         {countTotalFeedback === 0 ? (
           <Notification message="There is no feedback" />
         ) : (
@@ -50,12 +55,7 @@ class App extends React.Component {
             positivePercentage={countPositiveFeedbackPercentage}
           />
         )}
-
-        <FeedbackOptions
-          options={this.getState()}
-          onLeaveFeedback={this.leaveFeedback}
-        />
-      </div>
+      </Section>
     );
   }
 }
