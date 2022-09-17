@@ -1,23 +1,23 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import React from 'react';
-import FeedbackOptions from './Feedback/FeedbackOptions';
-import Statistics from './Feedback/Statistics';
-import Notification from './Feedback/Notification';
-import Section from './Feedback/Section';
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import Statistics from './Statistics/Statistics';
+import Notification from './Notification/Notification';
+import Section from './Section/Section';
 import { StatisticsTitle } from './App.styled';
 
 class App extends React.Component {
-  static defaultProps = {
-    initialValue: 0,
-  };
-  static propTypes = {
-    initialValue: PropTypes.number,
-  };
+  // static defaultProps = {
+  //   initialValue: 0,
+  // };
+  // static propTypes = {
+  //   initialValue: PropTypes.number,
+  // };
 
   state = {
-    good: this.props.initialValue,
-    neutral: this.props.initialValue,
-    bad: this.props.initialValue,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
   getState = () => {
